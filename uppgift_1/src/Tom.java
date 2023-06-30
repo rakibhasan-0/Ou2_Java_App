@@ -1,7 +1,7 @@
 public class Tom implements DogBuilder {
-    private final DogEssential dogs;
-    public Tom (DogEssential dogs){
-        this.dogs = dogs;
+    private final Dog dogs;
+    public Tom(){
+        this.dogs = new Dog();
     }
     @Override
     public void buildDogName(){
@@ -12,14 +12,18 @@ public class Tom implements DogBuilder {
         this.dogs.setAge(2);
     }
     @Override
-    public void buildDogTyoe() {
+    public void buildDogType() {
         this.dogs.setType("afgan hound");
     }
     @Override
-    public void addToys(String toy) {
-        this.dogs.setToys(toy);
+    public void addToys() {
+        this.dogs.setToys("Ball");
+        this.dogs.setToys("Flying Plate");
     }
-    public DogEssential getDog(){
+
+    @Override
+    public Dog getDog(){
         return this.dogs;
     }
+
 }

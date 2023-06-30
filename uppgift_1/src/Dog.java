@@ -1,11 +1,11 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class DogEssential implements DogElements{
+public class Dog implements DogElements {
     private String name;
     private String type;
     private Integer age;
-    private List <String> toys;
+    private List <String> toys = new ArrayList<String>();
     @Override
     public void setName(String name) {
         this.name = name;
@@ -23,11 +23,24 @@ public class DogEssential implements DogElements{
 
     @Override
     public void setToys(String toys) {
-        if(this.toys.isEmpty()){
-            this.toys = new ArrayList<>();
-        }else{
-            this.toys.add(toys);
-        }
+        this.toys.add(toys);
+    }
+
+    String getName(){
+        return this.name;
+    }
+
+    String getType(){
+        return this.type;
+    }
+
+    Integer getAge(){
+        return this.age;
+    }
+
+    List<String> getToys(){
+        return this.toys;
     }
 
 }
+
