@@ -1,5 +1,10 @@
+import javax.swing.SwingUtilities;
+
+/**
+ * Create an order and print it
+ */
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        SwingUtilities.invokeLater(()->new BakeryGuiBuilder().buildGui());
     }
 }
