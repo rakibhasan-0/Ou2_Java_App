@@ -3,23 +3,24 @@ import java.util.Stack;
 public class EditorTextMementoManager {
     private Stack<EditorTextMemento> mementoStack;
 
-    public EditorTextMementoManager() {
+    public EditorTextMementoManager(){
         mementoStack = new Stack<>();
     }
 
-    public void save(EditorTextMemento memento) {
+    public void save(EditorTextMemento memento){
         mementoStack.push(memento);
     }
 
-    public EditorTextMemento restore() {
-        if (!mementoStack.isEmpty()) {
+    public EditorTextMemento restore(){
+        if (!mementoStack.isEmpty()){
             return mementoStack.pop();
         }
         return null;
     }
 
-    public boolean hasMemento() {
+    public boolean hasMemento(){
         return !mementoStack.isEmpty();
     }
+
 }
 

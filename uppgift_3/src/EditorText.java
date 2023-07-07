@@ -5,9 +5,9 @@ public class EditorText implements EditorTextInterface {
     private String text;
     private int cursorPosition;
     private int selectionEnd;
-    private List<EditorTextChangeListener> changeListeners;
+    private final List<EditorTextChangeListener> changeListeners;
 
-    public EditorText() {
+    public EditorText(){
         text = "";
         cursorPosition = 0;
         selectionEnd = 0;
@@ -20,7 +20,7 @@ public class EditorText implements EditorTextInterface {
     }
 
     @Override
-    public void setText(String text) {
+    public void setText(String text){
         this.text = text;
         notifyChangeListeners();
     }
@@ -57,4 +57,5 @@ public class EditorText implements EditorTextInterface {
             listener.stateUpdated(this);
         }
     }
+
 }

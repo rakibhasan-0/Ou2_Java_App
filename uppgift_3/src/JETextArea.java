@@ -72,4 +72,5 @@ public class JETextArea extends JTextArea {
             updateText();
         }
     }
+
 }

@@ -1,12 +1,13 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class TextEditorApp {
+public class TextEditorApp{
     private EditorText editorText;
     private EditorTextMementoManager mementoManager;
     private JETextArea textArea;
 
     public TextEditorApp() {
+
         editorText = new EditorText();
         mementoManager = new EditorTextMementoManager();
 
@@ -24,6 +25,7 @@ public class TextEditorApp {
         JButton saveButton = new JButton("Save");
         saveButton.addActionListener(e -> saveState());
 
+
         // Create the restore button
         JButton restoreButton = new JButton("Restore");
         restoreButton.addActionListener(e -> restoreState());
@@ -36,14 +38,16 @@ public class TextEditorApp {
 
         // Add the frame to the screen
         frame.pack();
+        frame.setSize(500, 500);
         frame.setVisible(true);
     }
 
-    private void saveState() {
+    private void saveState(){
         String text = textArea.getText();
         int cursorPosition = editorText.getCursorPosition();
+        //System.out.println("Current cursor position: " + cursorPosition);
         int selectionEnd = editorText.getSelectionEndPosition();
-
+        //System.out.println("Selection end position: " + selectionEnd);
         EditorTextMemento memento = new EditorTextMemento(text, cursorPosition, selectionEnd);
         mementoManager.save(memento);
     }
@@ -54,7 +58,6 @@ public class TextEditorApp {
             String text = memento.getText();
             int cursorPosition = memento.getCursorPosition();
             int selectionEnd = memento.getSelectionEnd();
-
             textArea.setText(text);
             editorText.setText(text);
             editorText.setCursorPosition(cursorPosition, selectionEnd);
@@ -62,6 +65,6 @@ public class TextEditorApp {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(TextEditorApp::new);
+        new TextEditorApp();
     }
 }

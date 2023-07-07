@@ -4,7 +4,13 @@ public class EditorTextMemento {
     private final int selectionEnd;
 
     public EditorTextMemento(String text, int cursorPosition, int selectionEnd) {
-        this.text = text;
+
+        if(cursorPosition != selectionEnd){
+            this.text = text.substring(cursorPosition, selectionEnd);
+        }
+        else{
+            this.text = text;
+        }
         this.cursorPosition = cursorPosition;
         this.selectionEnd = selectionEnd;
     }
