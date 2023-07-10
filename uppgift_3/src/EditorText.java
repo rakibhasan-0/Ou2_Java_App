@@ -22,14 +22,12 @@ public class EditorText implements EditorTextInterface {
     @Override
     public void setText(String text){
         this.text = text;
-        notifyChangeListeners();
     }
 
     @Override
     public void setCursorPosition(int cursorPosition, int selectionEnd) {
         this.cursorPosition = cursorPosition;
         this.selectionEnd = selectionEnd;
-        notifyChangeListeners();
     }
 
     @Override
@@ -52,10 +50,5 @@ public class EditorText implements EditorTextInterface {
         changeListeners.remove(listener);
     }
 
-    private void notifyChangeListeners() {
-        for (EditorTextChangeListener listener : changeListeners) {
-            listener.stateUpdated(this);
-        }
-    }
 
 }

@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Dog implements DogElements {
+public class Dog implements DogElements{
     private String name;
     private String type;
     private Integer age;
